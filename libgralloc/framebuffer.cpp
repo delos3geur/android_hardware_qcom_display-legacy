@@ -311,7 +311,12 @@ int mapFrameBufferLocked(struct private_module_t* module)
     float xdpi = (info.xres * 25.4f) / info.width;
     float ydpi = (info.yres * 25.4f) / info.height;
     //The reserved[3] field is used to store FPS by the driver.
-    float fps  = info.reserved[3];
+#ifndef REFRESH_RATE
+     float fps  = info.reserved[4];		     float fps  = info.reserved[4];
+#else
+    float fps = REFRESH_RATE;
+#warning "refresh rate set via makefile to REFRESH_RATE"
+#endif
 
     ALOGI("using (fd=%d)\n"
           "id           = %s\n"

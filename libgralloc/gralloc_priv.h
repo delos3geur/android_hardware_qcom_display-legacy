@@ -59,6 +59,9 @@ enum {
      * and may need to be moved if the gralloc API changes
      */
     GRALLOC_USAGE_PRIVATE_UNSYNCHRONIZED  =       0X04000000,
+    
+	/* Buffer content should be displayed on an primary display only */
+	GRALLOC_USAGE_PRIVATE_INTERNAL_ONLY   =       0x04000000,
 
     /* Buffer content should be displayed on an external display only */
     GRALLOC_USAGE_PRIVATE_EXTERNAL_ONLY   =       0x08000000,
@@ -76,7 +79,11 @@ enum {
      * which can be used for buffers that are not secured for DRM
      * but still need to be protected from screen captures
      */
+    
     GRALLOC_USAGE_PRIVATE_CP_BUFFER       =       0x00400000,
+    
+    /* This flag is used for SECURE display usecase */
+	GRALLOC_USAGE_PRIVATE_SECURE_DISPLAY  =       0x00800000,
 
     /* Legacy heaps - these heaps are no-ops so we are making them zero
      * The flags need to be around to compile certain HALs which have
