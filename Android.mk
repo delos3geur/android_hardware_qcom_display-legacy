@@ -1,6 +1,3 @@
-#Enables the listed display HAL modules
-#libs to be built for QCOM targets only
-
 ifeq ($(call my-dir),$(call project-path-for,qcom-display))
 
 display-hals := libgralloc libgenlock libcopybit
